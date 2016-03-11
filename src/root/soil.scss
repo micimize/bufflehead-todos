@@ -1,0 +1,59 @@
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+@import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+nav {
+    @extend .navbar;
+    @extend .navbar-default;
+    .profile {
+        @extend .nav;
+        @extend .navbar-nav;
+        @extend .navbar-right;
+        padding: 15px;
+        .logout {
+            @extend .btn;
+            @extend .btn-xs;
+            @extend .btn-warning;
+        } 
+    }
+}
+.container {
+    h4 {
+        color: $gray-light;
+        text-transform: uppercase;
+        margin: -0.3em 0em;
+        margin-bottom: 0.2em;
+    }
+
+    .half-width {
+        @include make-sm-column(6);
+    }
+    .third-width {
+        @include make-sm-column(4);
+    }
+    .full-width {
+        padding-bottom: 4em;
+        @include make-sm-column(12);
+    }
+    
+    #linkedin {
+        @extend .well;
+        .name {
+            color: $gray-light;
+            font-style: italic;
+            font-weight: 400;
+        }
+        .summary {
+            padding-left: 10px;
+            border-left: 2px solid lighten($gray-light, 40);
+            white-space: pre-wrap;
+        }
+    }
+
+    #analysis .analyze {
+        @extend .btn;
+        @extend .btn-primary;
+    }  
+    .match {
+        @extend .btn;
+        @extend .btn-primary;
+    }
+}

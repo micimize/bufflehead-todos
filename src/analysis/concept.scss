@@ -1,0 +1,41 @@
+.concept {
+    &:not(.tag) a {
+        width: 100%;
+        padding-left: 15px;
+    }
+    &.tag  {
+        display: inline-block;
+        width: 32%;
+        vertical-align: middle;
+    }
+    &.tag a {
+        display: inline;
+        float: left;
+        padding: 5px;
+        border-width: 0;
+        word-wrap: break-word;
+        max-width: 100%;
+        white-space: normal;
+        span.badge.right {
+            display: inline-block;
+            margin-left: 5px;
+        }
+    }
+    a {
+        text-align: left;
+        border-radius: 0px;
+        border-bottom-width: 0px;
+        .score {
+            float: right
+        }
+    }
+    &:not(.tag):first-of-type a {
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+    &:not(.tag):last-of-type a {
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        border-bottom-width: 1px;
+    }
+}
