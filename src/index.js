@@ -1,15 +1,8 @@
-require('babel-polyfill')
-import t from 'tcomb'
-import { Application } from 'reactuate'
+import DomainDrivenFullStackApplication from 'bufflehead'
+import todos from './todos'
 
-import { routes } from './nav'
-import categories from './categories/client'
-import profiles from './profiles/client'
-import { storeMiddlewareGenerator } from './db'
+const app = new DomainDrivenFullStackApplication({
+    Domains: {todos}
+})
 
-new Application({
-    routes,
-    domains: {categories, profiles},
-    middlewareGenerators: [storeMiddlewareGenerator]
-}).render()
-
+app()
