@@ -2,18 +2,18 @@ import React, { Component, PropTypes } from 'react'
 import TodoItem from './TodoItem'
 import Footer from './Footer'
 import Header from './Header'
-import { filters as { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } } from '../dataFlows'
+import { filters } from '../dataFlows'
 
 const TODO_FILTERS = {
-  [SHOW_ALL]: () => true,
-  [SHOW_ACTIVE]: todo => !todo.completed,
-  [SHOW_COMPLETED]: todo => todo.completed
+  [filters.SHOW_ALL]: () => true,
+  [filters.SHOW_ACTIVE]: todo => !todo.completed,
+  [filters.SHOW_COMPLETED]: todo => todo.completed
 }
 
 class Todos extends Component {
   constructor(props, context) {
     super(props, context)
-    this.state = { filter: SHOW_ALL }
+    this.state = { filter: filters.SHOW_ALL }
   }
 
   handleClearCompleted() {
