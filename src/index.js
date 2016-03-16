@@ -1,8 +1,8 @@
-import DomainDrivenFullStackApplication from 'bufflehead'
+import DomainDrivenFullStackApplication, { Domain } from 'bufflehead'
 import todos from './todos'
 
 const app = new DomainDrivenFullStackApplication({
-    Domains: {todos}
+    domains: new Domain({todos})
 })
 
 app()
