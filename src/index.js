@@ -5,4 +5,4 @@ const app = new DomainDrivenFullStackApplication({
     domains: new Domain({todos})
 })
 
-app()
+app.main()
