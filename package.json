@@ -12,10 +12,12 @@
   "author": "Michael Joseph Rosenthal",
   "license": "ISC",
   "dependencies": {
+    "babel-preset-react-hmre": "^1.1.1",
     "bufflehead": "strictduck/bufflehead",
     "classnames": "^2.2.3",
+    "domain-driven-redux-react": "michaeljosephrosenthal/redux-react-domain-driver",
     "react": "^0.14.7",
-    "react-redux": "^4.4.0",
+    "react-redux": "^4.4.1",
     "react-router": "^1.0.3",
     "redux": "^3.3.1",
     "todomvc-app-css": "^2.0.4",
