@@ -3,6 +3,7 @@ const DomainDrivenFullStackApplication = (
         require('bufflehead/node') :
         require('bufflehead/browser')
 ).default
+
 import todos from './todos'
 
 const app = new DomainDrivenFullStackApplication({

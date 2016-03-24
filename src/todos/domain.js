@@ -4,6 +4,9 @@ const Domain = ($ES.CONTEXT == 'NODE' ? require('bufflehead/node') : require('bu
 
 export default new Domain({
     name: 'todos',
-    container: Todos,
+    route: {
+        path: '/',
+        component: Todos
+    },
     dataFlows: dataFlows
 })

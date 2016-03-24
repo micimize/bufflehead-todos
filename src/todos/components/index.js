@@ -1,2 +1,1 @@
-export default from './Container'
-export component from './Todos'
+export default from './Todos'
