@@ -1,6 +1,6 @@
 import dataFlows from './dataFlows'
 import Todos from './components'
-import { Domain } from 'bufflehead'
+const Domain = ($ES.CONTEXT == 'NODE' ? require('bufflehead/node') : require('bufflehead/browser')).Domain
 
 export default new Domain({
     name: 'todos',
