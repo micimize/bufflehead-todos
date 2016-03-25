@@ -39,12 +39,12 @@ class TodoItem extends Component {
           <input className="toggle"
                  type="checkbox"
                  checked={todo.completed}
-                 onChange={() => completeTodo(todo.id)} />
+                 onChange={() => completeTodo(todo)} />
           <label onDoubleClick={this.handleDoubleClick.bind(this)}>
             {todo.text}
           </label>
           <button className="destroy"
-                  onClick={() => deleteTodo(todo.id)} />
+                  onClick={_ => deleteTodo(todo)} />
         </div>
       )
     }

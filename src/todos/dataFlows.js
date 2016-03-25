@@ -5,40 +5,40 @@ export const filters = {
 }
 
 export default {
-    ADD_TODO(store, payload){
+    ADD_TODO(state, payload){
         return [
             {
                 id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
                 completed: false,
-                text: action.text
+                text: payload.text
             }, 
             ...state
         ]
     },
-    DELETE_TODO(store, payload){
-        return state.filter(todo => todo.id !== action.id)
+    DELETE_TODO(state, payload){
+        return state.filter(todo => todo.id !== payload.id)
     },
-    EDIT_TODO(store, payload){
+    EDIT_TODO(state, payload){
         return state.map(
-            todo => todo.id === action.id ?
-                 Object.assign({}, todo, { text: action.text }) :
+            todo => todo.id === payload.id ?
+                 Object.assign({}, todo, { text: payload.text }) :
                  todo
         )
     },
-    COMPLETE_TODO(store, payload){
+    COMPLETE_TODO(state, payload){
         return state.map(
-            todo => todo.id === action.id ?
+            todo => todo.id === payload.id ?
                 Object.assign({}, todo, { completed: !todo.completed }) :
                 todo
         )
     },
-    COMPLETE_ALL(store, payload){
+    COMPLETE_ALL(state, payload){
         const areAllMarked = state.every(todo => todo.completed)
         return state.map(todo => Object.assign({}, todo, {
             completed: !areAllMarked
         }))
     },
-    CLEAR_COMPLETED(store, payload){
+    CLEAR_COMPLETED(state, payload){
         return state.filter(todo => todo.completed === false)
     }
 }
