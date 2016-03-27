@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node-simple-webpacker --react true --entry ./src/index.js --out ./build/index.js",
-    "dist": "node-simple-webpacker --task dist --entry ./src/index.js --out ./dist/index.js",
-    "deploy": "npm run dist; forever start ./dist/index.js"
+    "dock": "npm rebuild; npm start",
+    "start": "node-simple-webpacker --react true --entry ./src/index.js --out ./build/index.js"
   },
   "author": "Michael Joseph Rosenthal",
   "license": "ISC",

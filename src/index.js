@@ -12,7 +12,7 @@ import todos from './todos'
 
 const settings = bufflehead.settings({
     "db": {
-        "name": "todos2",
+        "name": "todos",
         "uri": "http://127.0.0.1:5984",
         "credentials": {
             "admin":{
