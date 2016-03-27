@@ -8,26 +8,26 @@ export default {
     ADD_TODO(state, payload){
         return [
             {
-                id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
+                _id: (state.reduce((maxId, todo) => Math.max(parseInt(todo._id), maxId), -1) + 1).toString(),
                 completed: false,
-                text: payload.text
+                ...payload
             }, 
             ...state
         ]
     },
     DELETE_TODO(state, payload){
-        return state.filter(todo => todo.id !== payload.id)
+        return state.filter(todo => todo._id !== payload._id)
     },
     EDIT_TODO(state, payload){
         return state.map(
-            todo => todo.id === payload.id ?
-                 Object.assign({}, todo, { text: payload.text }) :
+            todo => todo._id === payload._id ?
+                 Object.assign({}, todo, payload) :
                  todo
         )
     },
     COMPLETE_TODO(state, payload){
         return state.map(
-            todo => todo.id === payload.id ?
+            todo => todo._id === payload._id ?
                 Object.assign({}, todo, { completed: !todo.completed }) :
                 todo
         )

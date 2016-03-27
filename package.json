@@ -12,6 +12,7 @@
   "author": "Michael Joseph Rosenthal",
   "license": "ISC",
   "dependencies": {
+    "babel-polyfill": "^6.7.4",
     "babel-preset-react-hmre": "^1.1.1",
     "bufflehead": "strictduck/bufflehead",
     "classnames": "^2.2.3",

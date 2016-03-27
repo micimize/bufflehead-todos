@@ -8,5 +8,10 @@ export default new Domain({
         path: '/',
         component: Todos
     },
+    pouchActionMap: {
+        insert: 'addTodo',
+        update: 'editTodo',
+        remove: 'deleteTodo'
+    },
     dataFlows: dataFlows
 })

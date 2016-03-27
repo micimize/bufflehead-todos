@@ -1,18 +1,34 @@
-const DomainDrivenFullStackApplication = (
+import 'babel-polyfill'
+const bufflehead = (
     $ES.CONTEXT == 'NODE' ?
         require('bufflehead/node') :
         require('bufflehead/browser')
-).default
+)
 
 if ($ES.CONTEXT == 'BROWSER')
     require('todomvc-app-css/index.css');
 
 import todos from './todos'
+const settings = bufflehead.settings({
+    "db": {
+        "name": "todos",
+        "uri": "http://localhost:5984",
+        /*"credentials": {
+            "admin":{
+                "name": "server",
+                "password": "server"
+            },
+            "users": [{
+                "name": "client",
+                "password": "client"
+            }]
+        }*/
+    }
+})
 
-
-const app = new DomainDrivenFullStackApplication({
+const app = new bufflehead.default({
     title: 'Domain Driven Bufflehead Todos',
-    domains: {todos}
+    domains: { todos, settings }
 })
 
 app.main()
