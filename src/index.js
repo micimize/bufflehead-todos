@@ -9,20 +9,21 @@ if ($ES.CONTEXT == 'BROWSER')
     require('todomvc-app-css/index.css');
 
 import todos from './todos'
+
 const settings = bufflehead.settings({
     "db": {
-        "name": "todos",
-        "uri": "http://localhost:5984",
-        /*"credentials": {
+        "name": "todos2",
+        "uri": "http://127.0.0.1:5984",
+        "credentials": {
             "admin":{
                 "name": "server",
                 "password": "server"
-            },
+            }/*,
             "users": [{
                 "name": "client",
                 "password": "client"
-            }]
-        }*/
+            }]*/
+        }
     }
 })
 
