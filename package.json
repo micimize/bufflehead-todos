@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "polypacker --preset NODE_APPLICATION --babelPreset react --env PRODUCTION",
     "dock": "npm rebuild; npm start",
-    "start": "node-simple-webpacker --react true --entry ./src/index.js --out ./build/index.js"
+    "start": "polypacker --preset NODE_APPLICATION --babelPreset react",
+    "watch": "polypacker --preset NODE_APPLICATION --babelPreset react --watch"
   },
   "author": "Michael Joseph Rosenthal",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "babel-preset-react-hmre": "^1.1.1",
     "bufflehead": "strictduck/bufflehead",
     "classnames": "^2.2.3",
+    "imports-loader": "^0.6.5",
     "react": "^0.14.7",
     "react-redux": "^4.4.1",
     "react-router": "^1.0.3",
@@ -25,6 +27,6 @@
     "webpack-hot-middleware": "^2.10.0"
   },
   "devDependencies": {
-    "node-simple-webpacker": "git://github.com/michaeljosephrosenthal/node-simple-webpacker.git"
+    "polypacker": "git://github.com/michaeljosephrosenthal/polypacker.git"
   }
 }

@@ -6,7 +6,7 @@ RUN apk add --update \
     git
 
 ADD package.json /tmp/package.json
-RUN cd /tmp && npm install
+RUN cd /tmp && npm install --verbose
 
 RUN mkdir -p /app
 WORKDIR /app

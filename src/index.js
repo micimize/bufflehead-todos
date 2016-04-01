@@ -1,9 +1,10 @@
 import 'babel-polyfill'
 const bufflehead = (
     $ES.CONTEXT == 'NODE' ?
-        require('bufflehead/node') :
-        require('bufflehead/browser')
+        require('bufflehead/dist/for/node') :
+        require('bufflehead/dist/for/browser')
 )
+
 
 if ($ES.CONTEXT == 'BROWSER')
     require('todomvc-app-css/index.css');
