@@ -1,6 +1,6 @@
 import dataFlows from './dataFlows'
 import Todos from './components'
-const Domain = ($ES.CONTEXT == 'NODE' ? require('bufflehead/dist/for/node') : require('bufflehead/dist/for/browser')).Domain
+import { Domain } from 'polypack!bufflehead'
 
 export default new Domain({
     name: 'todos',
