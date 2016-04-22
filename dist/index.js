@@ -1,3 +1,832 @@
-require("source-map-support").install(),module.exports=function(e){function t(r){if(n[r])return n[r].exports;var o=n[r]={exports:{},id:r,loaded:!1};return e[r].call(o.exports,o,o.exports,t),o.loaded=!0,o.exports}var n={};return t.m=e,t.c=n,t.p="",t(0)}([function(e,t,n){e.exports=n(7)},function(e,t){e.exports=require("react")},function(e,t){"use strict";function n(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}Object.defineProperty(t,"__esModule",{value:!0});var r=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e};t.filters={SHOW_ALL:"show_all",SHOW_COMPLETED:"show_completed",SHOW_ACTIVE:"show_active"};t["default"]={ADD_TODO:function(e,t){return[r({_id:(e.reduce(function(e,t){return Math.max(parseInt(t._id),e)},-1)+1).toString(),completed:!1},t)].concat(n(e))},DELETE_TODO:function(e,t){return e.filter(function(e){return e._id!==t._id})},EDIT_TODO:function(e,t){return e.map(function(e){return e._id===t._id?Object.assign({},e,t):e})},COMPLETE_TODO:function(e,t){return e.map(function(e){return e._id===t._id?Object.assign({},e,{completed:!e.completed}):e})},COMPLETE_ALL:function(e,t){var n=e.every(function(e){return e.completed});return e.map(function(e){return Object.assign({},e,{completed:!n})})},CLEAR_COMPLETED:function(e,t){return e.filter(function(e){return e.completed===!1})}}},function(e,t){e.exports=require("classnames")},function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{"default":e}}function o(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function u(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var a=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),c=n(1),s=r(c),f=n(3),l=r(f),d=function(e){function t(e,n){o(this,t);var r=i(this,Object.getPrototypeOf(t).call(this,e,n));return r.state={text:r.props.text||""},r}return u(t,e),a(t,[{key:"handleSubmit",value:function(e){var t=e.target.value.trim();13===e.which&&(this.props.onSave(t),this.props.newTodo&&this.setState({text:""}))}},{key:"handleChange",value:function(e){this.setState({text:e.target.value})}},{key:"handleBlur",value:function(e){this.props.newTodo||this.props.onSave(e.target.value)}},{key:"render",value:function(){return s["default"].createElement("input",{className:(0,l["default"])({edit:this.props.editing,"new-todo":this.props.newTodo}),type:"text",placeholder:this.props.placeholder,autoFocus:"true",value:this.state.text,onBlur:this.handleBlur.bind(this),onChange:this.handleChange.bind(this),onKeyDown:this.handleSubmit.bind(this)})}}]),t}(c.Component);d.propTypes={onSave:c.PropTypes.func.isRequired,text:c.PropTypes.string,placeholder:c.PropTypes.string,editing:c.PropTypes.bool,newTodo:c.PropTypes.bool},t["default"]=d},function(e,t,n){e.exports=n(15)},function(e,t){e.exports=require("source-map-support")},function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{"default":e}}function o(e){if(e&&e.__esModule)return e;var t={};if(null!=e)for(var n in e)Object.prototype.hasOwnProperty.call(e,n)&&(t[n]=e[n]);return t["default"]=e,t}n(17);var i=n(5),u=o(i),a=n(14),c=r(a),s=u.settings({db:{name:"todos",uri:"http://127.0.0.1:5984",credentials:{admin:{name:"server",password:"server"}}}}),f=new u["default"]({title:"Domain Driven Bufflehead Todos",domains:{todos:c["default"],settings:s}});f.main()},function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{"default":e}}function o(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function u(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}function a(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}Object.defineProperty(t,"__esModule",{value:!0});var c,s=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),f=n(1),l=r(f),d=n(3),p=r(d),v=n(2),h=(c={},a(c,v.filters.SHOW_ALL,"All"),a(c,v.filters.SHOW_ACTIVE,"Active"),a(c,v.filters.SHOW_COMPLETED,"Completed"),c),m=function(e){function t(){return o(this,t),i(this,Object.getPrototypeOf(t).apply(this,arguments))}return u(t,e),s(t,[{key:"renderTodoCount",value:function(){var e=this.props.activeCount,t=1===e?"item":"items";return l["default"].createElement("span",{className:"todo-count"},l["default"].createElement("strong",null,e||"No")," ",t," left")}},{key:"renderFilterLink",value:function(e){var t=h[e],n=this.props,r=n.filter,o=n.onShow;return l["default"].createElement("a",{className:(0,p["default"])({selected:e===r}),style:{cursor:"pointer"},onClick:function(){return o(e)}},t)}},{key:"renderClearButton",value:function(){var e=this.props,t=e.completedCount,n=e.onClearCompleted;return t>0?l["default"].createElement("button",{className:"clear-completed",onClick:n},"Clear completed"):void 0}},{key:"render",value:function(){var e=this;return l["default"].createElement("footer",{className:"footer"},this.renderTodoCount(),l["default"].createElement("ul",{className:"filters"},[v.filters.SHOW_ALL,v.filters.SHOW_ACTIVE,v.filters.SHOW_COMPLETED].map(function(t){return l["default"].createElement("li",{key:t},e.renderFilterLink(t))})),this.renderClearButton())}}]),t}(f.Component);m.propTypes={completedCount:f.PropTypes.number.isRequired,activeCount:f.PropTypes.number.isRequired,filter:f.PropTypes.string.isRequired,onClearCompleted:f.PropTypes.func.isRequired,onShow:f.PropTypes.func.isRequired},t["default"]=m},function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{"default":e}}function o(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function u(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var a=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),c=n(1),s=r(c),f=n(4),l=r(f),d=function(e){function t(){return o(this,t),i(this,Object.getPrototypeOf(t).apply(this,arguments))}return u(t,e),a(t,[{key:"handleSave",value:function(e){0!==e.length&&this.props.addTodo({text:e})}},{key:"render",value:function(){return s["default"].createElement("header",{className:"header"},s["default"].createElement("h1",null,"todos"),s["default"].createElement(l["default"],{newTodo:!0,onSave:this.handleSave.bind(this),placeholder:"What needs to be done?"}))}}]),t}(c.Component);d.propTypes={addTodo:c.PropTypes.func.isRequired},t["default"]=d},function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{"default":e}}function o(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function u(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var a=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),c=n(1),s=r(c),f=n(3),l=r(f),d=n(4),p=r(d),v=function(e){function t(e,n){o(this,t);var r=i(this,Object.getPrototypeOf(t).call(this,e,n));return r.state={editing:!1},r}return u(t,e),a(t,[{key:"handleDoubleClick",value:function(){this.setState({editing:!0})}},{key:"handleSave",value:function(e,t){0===t.length?this.props.deleteTodo(e):this.props.editTodo(e,t),this.setState({editing:!1})}},{key:"render",value:function(){var e=this,t=this.props,n=t.todo,r=t.completeTodo,o=t.deleteTodo,i=void 0;return i=this.state.editing?s["default"].createElement(p["default"],{text:n.text,editing:this.state.editing,onSave:function(t){return e.handleSave(n.id,t)}}):s["default"].createElement("div",{className:"view"},s["default"].createElement("input",{className:"toggle",type:"checkbox",checked:n.completed,onChange:function(){return r(n)}}),s["default"].createElement("label",{onDoubleClick:this.handleDoubleClick.bind(this)},n.text),s["default"].createElement("button",{className:"destroy",onClick:function(e){return o(n)}})),s["default"].createElement("li",{className:(0,l["default"])({completed:n.completed,editing:this.state.editing})},i)}}]),t}(c.Component);v.propTypes={todo:c.PropTypes.object.isRequired,editTodo:c.PropTypes.func.isRequired,deleteTodo:c.PropTypes.func.isRequired,completeTodo:c.PropTypes.func.isRequired},t["default"]=v},function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{"default":e}}function o(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function u(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}function a(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}Object.defineProperty(t,"__esModule",{value:!0});var c,s=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},f=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),l=n(1),d=r(l),p=n(10),v=r(p),h=n(8),m=r(h),y=n(9),b=r(y),_=n(2),g=(c={},a(c,_.filters.SHOW_ALL,function(){return!0}),a(c,_.filters.SHOW_ACTIVE,function(e){return!e.completed}),a(c,_.filters.SHOW_COMPLETED,function(e){return e.completed}),c),O=function(e){function t(e,n){o(this,t);var r=i(this,Object.getPrototypeOf(t).call(this,e,n));return r.state={filter:_.filters.SHOW_ALL},r}return u(t,e),f(t,[{key:"handleClearCompleted",value:function(){this.props.actions.clearCompleted()}},{key:"handleShow",value:function(e){this.setState({filter:e})}},{key:"renderToggleAll",value:function(e){var t=this.props,n=t.todos,r=t.actions;return n.length>0?d["default"].createElement("input",{className:"toggle-all",type:"checkbox",checked:e===n.length,onChange:r.completeAll}):void 0}},{key:"renderFooter",value:function(e){var t=this.props.todos,n=this.state.filter,r=t.length-e;return t.length?d["default"].createElement(m["default"],{completedCount:e,activeCount:r,filter:n,onClearCompleted:this.handleClearCompleted.bind(this),onShow:this.handleShow.bind(this)}):void 0}},{key:"render",value:function(){var e=this.props,t=e.todos,n=e.actions,r=this.state.filter,o=t.filter(g[r]),i=t.reduce(function(e,t){return t.completed?e+1:e},0);return d["default"].createElement("div",null,d["default"].createElement(b["default"],{addTodo:n.addTodo}),d["default"].createElement("section",{className:"main"},this.renderToggleAll(i),d["default"].createElement("ul",{className:"todo-list"},o.map(function(e){return d["default"].createElement(v["default"],s({key:e._id,todo:e},n))})),this.renderFooter(i)))}}]),t}(l.Component);O.propTypes={todos:l.PropTypes.array.isRequired,actions:l.PropTypes.object.isRequired},t["default"]=O},function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{value:!0}),t["default"]=void 0;var o=n(11),i=r(o);t["default"]=i["default"]},function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{value:!0});var o=n(2),i=r(o),u=n(12),a=r(u),c=n(5);t["default"]=new c.Domain({name:"todos",route:{path:"/",component:a["default"]},pouchActionMap:{insert:"addTodo",update:"editTodo",remove:"deleteTodo"},dataFlows:i["default"]})},function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{value:!0}),t["default"]=void 0;var o=n(13),i=r(o);t["default"]=i["default"]},function(e,t,n){n(6).install(),e.exports=function(e){function t(r){if(n[r])return n[r].exports;var o=n[r]={exports:{},id:r,loaded:!1};return e[r].call(o.exports,o,o.exports,t),o.loaded=!0,o.exports}var n={};return t.m=e,t.c=n,t.p="",t(0)}(function(e){for(var t in e)if(Object.prototype.hasOwnProperty.call(e,t))switch(typeof e[t]){case"function":break;case"object":e[t]=function(t){var n=t.slice(1),r=e[t[0]];return function(e,t,o){r.apply(this,[e,t,o].concat(n))}}(e[t]);break;default:e[t]=e[e[t]]}return e}([function(e,t,n){e.exports=n(9)},function(e,t){e.exports=n(32)},function(e,t){e.exports=n(6)},[32,14],function(e,t){e.exports=n(20)},function(e,t){e.exports=n(1)},function(e,t){e.exports=n(28)},function(e,t){e.exports=n(31)},function(e,t,n){"use strict";function r(e){return e&&e.__esModule?e:{"default":e}}function o(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function i(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function u(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var a=n(1),c=r(a),s=n(11),f=r(s),l=n(12),d=r(l),p=n(3),v=r(p),h=function(e){function t(e){var n=e.server,r=void 0===n?f["default"]:n,u=e.client,a=void 0===u?d["default"]:u,c=e.persister,s=void 0===c?v["default"]:c,l=e.domains,p=e.context,h=void 0===p?"NODE":p;return o(this,t),i(this,Object.getPrototypeOf(t).call(this,{context:h,domains:l,server:r,client:a,persister:s}))}return u(t,e),t}(c["default"]);t["default"]=h},function(e,t,n){"use strict";function r(e){if(e&&e.__esModule)return e;var t={};if(null!=e)for(var n in e)Object.prototype.hasOwnProperty.call(e,n)&&(t[n]=e[n]);return t["default"]=e,t}function o(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{value:!0}),t.persister=t.Domain=t.settings=t["default"]=void 0;var i=n(8),u=o(i),a=n(10),c=o(a),s=n(1),f=n(3),l=r(f);t["default"]=u["default"],t.settings=c["default"];var d=s.Domain.implementation;s.Domain.Domains,t.Domain=d,t.persister=l},function(e,t,n){"use strict";function r(e,t){var n=arguments.length<=2||void 0===arguments[2]?["server","client"]:arguments[2];return e=Object.assign(e,e[t]||{}),Object.keys(e).filter(function(e){return n.indexOf(e)<0}).reduce(function(o,i){return o[i]=Array.isArray(e[i])||"object"!=u(e[i])?e[i]:r(e[i],t,n),o},{})}function o(e){var t=arguments.length<=1||void 0===arguments[1]?{NODE:"server",BROWSER:"client"}:arguments[1];return new a.Domain.implementation(i({name:"settings"},r(e,t.NODE)))}Object.defineProperty(t,"__esModule",{value:!0});var i=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},u="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol?"symbol":typeof e};t["default"]=o;var a=n(1)},[32,13],[32,15],function(e,t,n){"use strict";n(2).install(),e.exports=function(e){function t(r){if(n[r])return n[r].exports;var o=n[r]={exports:{},id:r,loaded:!1};return e[r].call(o.exports,o,o.exports,t),o.loaded=!0,o.exports}var n={};return t.m=e,t.c=n,t.p="",t(0)}([function(e,t,n){e.exports=n(3)},function(e,t){e.exports=n(4)},function(e,t,n){function r(e){return e&&e.__esModule?e:{"default":e}}function o(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}function i(e,t){return Object.keys(e).map(function(t){return e[t]}).filter(function(e){return Object.keys(e.get(t)).length})}function u(e){var t=e.router,n=e.routes,r=e.order,i=e.prefix,u=void 0===i?"":i,a=r||Object.keys(n);return a.forEach(function(e){var r=n[e],i=r.methods,a=r.handlers;i.forEach(function(n){t[n].apply(t,[u+e].concat(o(a)))})}),t}function a(e){var t=e.prefix,n=e.routes,r=e.order;return u({router:d["default"].Router(),routes:n,order:r,prefix:"/"+t})}function c(e){return i(e,"middleware").reduce(function(e,t){return[].concat(o(e),o(t.get("middleware")))},[]).filter(function(e){return"function"==typeof e})}function s(e){return i(e,"routes").map(a)}function f(e){return c(e)}Object.defineProperty(t,"__esModule",{value:!0}),t.domainRouteMiddlewareGenerator=s,t.genericDomainMiddlewareGenerator=f;var l=n(1),d=r(l)},function(e,t,n){Object.defineProperty(t,"__esModule",{value:!0});var r=n(4)["default"];t["default"]=r},function(e,t,n){function r(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{value:!0});var o=(n(5),n(1)),i=r(o),u=n(6),a=n(2);t["default"]=u.server.implement({name:"DomainDrivenExpress",constructor:function(e){var t=e.Domains,n=e.DomainDrivenStorePersistencePlugin,r=e.middlewareGenerators,o=void 0===r?[a.genericDomainMiddlewareGenerator,a.domainRouteMiddlewareGenerator]:r,u=e.server,c=void 0===u?(0,i["default"])():u;return e.container,n instanceof Error||(n.provide(t),t=n.provideInjectionForDomainRouteHandlers(t)),c._domains=c._domains||{},c.generateMiddleware=function(e){var t=this;o.forEach(function(n){return n(e).forEach(function(e){return t.use(e)})}),Object.assign(this._domains,e)},c.generateMiddleware.bind(c)(t),[c]},provider:function(e){var t=e.port,n=void 0===t?3e3:t,r=e.DomainDrivenClient;r&&this.generateMiddleware.bind(this)({"":r.provide()});var o=(0,i["default"])();o.use(this),o.listen(n,function(e){e?console.error(e):console.info("==> Listening on port "+n+". Open up http://localhost:"+n+"/ in your browser.")})}})},function(e,t){e.exports=n(7)},function(e,t){e.exports=n(1)}])},function(e,t,n){"use strict";n(2).install(),e.exports=function(e){function t(r){if(n[r])return n[r].exports;var o=n[r]={exports:{},id:r,loaded:!1};return e[r].call(o.exports,o,o.exports,t),o.loaded=!0,o.exports}var n={};return t.m=e,t.c=n,t.p="",t(0)}([function(e,t,n){e.exports=n(8)},function(e,t,n){function r(e){return e&&e.__esModule?e:{"default":e}}function o(e){return function(){var t=e.apply(this,arguments);return new Promise(function(e,n){function r(o,i){try{var u=t[o](i),a=u.value}catch(c){return void n(c)}return u.done?void e(a):Promise.resolve(a).then(function(e){return r("next",e)},function(e){return r("throw",e)})}return r("next")})}}function i(e,t){console.log(e,t),console.trace(t)}function u(e){var t=e.uri,n=e.protocols,r=void 0===n?["http","https"]:n,o=e.admin,i=o.name,u=o.password,a=r.filter(function(e){return t.startsWith(e+"://")})[0]+"://";return t.replace(a,""+a+i+":"+u+"@")}function a(e){try{(0,m.execSync)(e)}catch(t){console.log('command "'+e+'" failed with with error '+t)}}function c(e){var t=e.uri,n=e.name,r=e.credentials;r=void 0===r?{}:r;var o=r.admin;o&&a("curl -silent -X PUT -d '"+o.password+"' "+t+"/_config/admins/"+o.name);var i=o?u({uri:t+"/"+n,admin:o}):t+"/"+n;a("curl -silent -X PUT "+i)}Object.defineProperty(t,"__esModule",{value:!0});var s=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},f=function(){var e=o(regeneratorRuntime.mark(function t(e){var n,r,o=e.uri,u=e.name,a=e.password;return regeneratorRuntime.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.prev=0,e.next=3,v["default"].put(o+"/_config/admins/"+u).send('"'+a+'"');case 3:n=e.sent,console.log("Server admin created"),e.next=10;break;case 7:e.prev=7,e.t0=e["catch"](0),409!=e.t0.status?i("error creating superadmin",e.t0):console.log("Server admin already exists");case 10:return e.prev=10,e.next=13,this.login(u,a);case 13:return r=e.sent,console.log("Server admin logged in"),e.abrupt("return",r);case 18:e.prev=18,e.t1=e["catch"](10),i("error logging in superadmin",e.t1);case 21:case"end":return e.stop()}},t,this,[[0,7],[10,18]])}));return function(t){return e.apply(this,arguments)}}(),l=function(){var e=o(regeneratorRuntime.mark(function t(e){var n=e.name,r=e.password;return regeneratorRuntime.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.prev=0,e.next=3,this.signup(n,r);case 3:e.next=8;break;case 5:e.prev=5,e.t0=e["catch"](0),409!=e.t0.status?i("error creating superadmin",e.t0):console.log("user "+n+" already exists");case 8:case"end":return e.stop()}},t,this,[[0,5]])}));return function(t){return e.apply(this,arguments)}}(),d=function(){var e=o(regeneratorRuntime.mark(function t(e){var n=e.uri,r=e.credentials,o=r.admin,u=r.users;return regeneratorRuntime.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.prev=0,e.next=3,f.bind(this)(s({uri:n},o));case 3:e.next=8;break;case 5:e.prev=5,e.t0=e["catch"](0),i("error in initDbUsers",e.t0);case 8:u.forEach(l.bind(this));case 9:case"end":return e.stop()}},t,this,[[0,5]])}));return function(t){return e.apply(this,arguments)}}();t.ensureRemoteExistence=c;var p=n(17),v=r(p),h=n(2),m=(r(h),n(11));t["default"]=function(){function e(e){return t.apply(this,arguments)}var t=o(regeneratorRuntime.mark(function n(e){var t=e.settings.db,r=t.uri,o=t.credentials;return regeneratorRuntime.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:o&&d.bind(this)({uri:r,credentials:o});case 1:case"end":return e.stop()}},n,this)}));return e}()},function(e,t,n){function r(e){return e&&e.__esModule?e:{"default":e}}function o(e){var t=e.name,n=e.uri;return n+"/"+t}function i(e){return new a["default"](o(e),{skipSetup:!0})}Object.defineProperty(t,"__esModule",{value:!0}),t["default"]=i;var u=n(14),a=r(u),c=n(15),s=r(c);a["default"].plugin(s["default"])},function(e,t,n){function r(e){return e&&e.__esModule?e:{"default":e}}function o(e){var t=e.path,n=e.persister;return function(e,r,o){var i=function(n){r({nextPathname:e.location.pathname},t),o()};(n||this.db).getSession(function(e,t){e?(console.log(e),i()):t.userCtx.name?o():i()})}}function i(e){return{requiresAuthentication:!0,path:e}}function u(e){var t=function(e){return e};return Object.assign(t,{providesAuthentication:!0,component:e}),t}function a(e){var t=e.route,n=e.persister;return t.props.onEnter&&t.props.onEnter.requiresAuthentication?{onEnter:o({path:t.props.onEnter.path,persister:n})}:{}}function c(e){var t=e.route,n=e.persister;return t.props.component&&t.props.component.providesAuthentication?{component:function(e){return y["default"].createElement(t.props.component.component,h({auth:n},e))}}:{}}function s(e,t){return t=t||this.db,y["default"].cloneElement(e,h({},a({route:e,persister:t}),c({route:e,persister:t}),{key:e.props.path}),e.props.children?e.props.children.map(function(e){return s(e,t)}):void 0)}function f(e,t){var n=this;return function(){for(var r=arguments.length,o=Array(r),i=0;r>i;i++)o[i]=arguments[i];return e.apply(void 0,[t||n.db].concat(o))}}function l(e,t){return e.handlers=e.handlers.map(function(e){return e.requiresPersister?f(e.dependentFunction,t):e}),e}function d(e,t){var n=e.get("routes");return Object.keys(e.get("routes")).map(function(r){return e.register("routes",r,l(n[r],t))}),e}function p(e,t){return t=t||this.db,Object.keys(e).reduce(function(n,r){return n[r]=d(e[r],t),n},{})}function v(e){return{requiresPersister:!0,dependentFunction:e}}Object.defineProperty(t,"__esModule",{value:!0}),t.defaultDataFlows=void 0;var h=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e};t.requireAuthWithPersister=o,t.requireAuthFromRoute=i,t.provideAuthFromRoute=u,t.authenticateRoutes=s,t.provideInjectionForDomainRouteHandlers=p,t.requireInjection=v;var m=n(16),y=r(m),b=n(5),_=r(b);t.defaultDataFlows=_["default"]},function(e,t){e.exports=n(6)},function(e,t){function n(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}Object.defineProperty(t,"__esModule",{value:!0}),t["default"]={INSERT:function(e,t){return[t].concat(n(e))},UPDATE:function(e,t){return e.map(function(e){return e._id==t._id?t:e})},REMOVE:function(e,t){var n=t._id;return e.filter(function(e){return e._id!=n})}}},function(e,t,n){function r(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{value:!0});var o=n(18),i=n(7),u=r(i),a=n(2),c=r(a),s=n(3),f=n(1)["default"],l=n(1).ensureRemoteExistence;t["default"]=o.storePersistencePlugin.implement({name:"DomainDrivenPouchPersistencePlugin",constructor:function(e){var t=e.Domains.settings.db;return l(t),[{db:(0,c["default"])(t),middlewareGenerator:u["default"],authenticateRoutes:s.authenticateRoutes,provideAuthFromRoute:s.provideAuthFromRoute,provideInjectionForDomainRouteHandlers:s.provideInjectionForDomainRouteHandlers}]},provider:function(){return f.bind(this.db).apply(void 0,arguments)}})},function(e,t,n){function r(e){return e&&e.__esModule?e:{"default":e}}function o(e){return Object.keys(e).reduce(function(t,n){return t[e[n]]=n,t},{})}function i(e){var t=e.domain,n=t.actions,r=void 0===n?{}:n,i=t.pouchActionMap,u=void 0===i?{insert:"insert",update:"update",remove:"remove"}:i,a=o(u),c=Object.keys(r).filter(function(e){return[u.update,u.insert,u.remove].indexOf(e)>=0}).reduce(function(e,t){return e[a[t]]=function(e){try{return r[t](e)}catch(n){if(n instanceof TypeError)return;throw n}},e},{});return Object.keys(c).length?c:!1}function u(e){var t=e.db,n=e.domains;return(0,c["default"])(Object.values(n).filter(function(e){return i({domain:e})}).map(function(e){return e}).map(function(e){return{path:"/"+e.prefix,prefix:""+(e.dbPrefix||""),db:t,actions:i({domain:e})}}))}Object.defineProperty(t,"__esModule",{value:!0}),t["default"]=u;var a=(n(4),n(9)),c=r(a)},function(e,t,n){function r(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{value:!0}),t.utils=t["default"]=void 0;var o=n(3);Object.keys(o).forEach(function(e){"default"!==e&&Object.defineProperty(t,e,{enumerable:!0,get:function(){return o[e]}})});var i=n(6),u=r(i);t["default"]=u["default"],t.utils=n(1)},function(e,t,n){function r(e){return e&&e.__esModule?e:{"default":e}}function o(e,t){var n={};for(var r in e)t.indexOf(r)>=0||Object.prototype.hasOwnProperty.call(e,r)&&(n[r]=e[r]);return n}function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function u(e){var t=console.warn||console.log;t&&t.call(console,e)}function a(e){return function(){throw new Error("no action provided for "+e)}}function c(e){return e.lifecycleState?void 0:(e.lifecycleState="INITIALIZING",e.db.allDocs(h({include_docs:!0},e.prefix?{startkey:e.prefix,endkey:e.prefix+"￿"}:{})).then(function(t){t.rows.forEach(function(t){return d(e,t)}),e.lifecycleState="INITIALIZED",s(e)}))}function s(e){var t=e.db.changes(h({live:!0,since:"now",include_docs:!0},e.prefix?{filter:function(t){var n=t._id;return n.split("/")[0]==e.prefix}}:{}));t.on("change",function(t){return d(e,t)})}function f(e,t){var n=y["default"].resolve(t,e.path);n&&n.length&&"INITIALIZED"==e.lifecycleState&&n.forEach(function(t){var n=l(e.docs,t),r=n.updated,o=n.deleted,i=n.inserted;i.concat(r).forEach(function(t){return e.insert(t)}),o.forEach(function(t){return e.remove(t)})})}function l(e,t){var n=[],r=[],o=Object.keys(e).map(function(t){return e[t]});return t.forEach(function(t){t._id||u("doc with no id"),o=o.filter(function(e){return e._id!==t._id});var i=e[t._id];i?(0,O["default"])(i,t)||r.push(t):n.push(t)}),{inserted:n,updated:r,deleted:o}}function d(e,t){var n=t.doc;if(o(t,["doc"]),n._deleted)e.docs[n._id]&&(delete e.docs[n._id],e.propagations.remove(n));else{var r=e.docs[n._id];e.docs[n._id]=n,r?e.propagations.update(n):e.propagations.insert(n)}}function p(){var e=arguments.length<=0||void 0===arguments[0]?[]:arguments[0];if(Array.isArray(e)||(e=[e]),!e.length)throw new Error("PouchMiddleware: no paths");return e=e.map(function(e){return new w(e)}),function(t){var n=t.dispatch,r=t.getState;return e.forEach(function(e){e.wrapActionCreators(n),e.initFromDb()}),function(t){return function(n){var o=t(n);return e.forEach(function(e){return f(e,r())}),o}}}}Object.defineProperty(t,"__esModule",{value:!0});var v=function(){function e(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(t,n,r){return n&&e(t.prototype,n),r&&e(t,r),t}}(),h=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e};t["default"]=p;var m=n(13),y=r(m),b=n(10),_=r(b),g=n(12),O=r(g),x=(n(4),{remove:a("remove"),update:a("update"),insert:a("insert")}),w=function(){function e(t){var n=t.path,r=void 0===n?".":n,o=t.prefix,u=void 0===o?"":o,a=t.db,c=t.actions;if(i(this,e),!a)throw new Error("path "+r.path+" needs a db");this.queue=(0,_["default"])(1),this.docs={},this.db=a,this.path=r,this.prefix=u,this.actions=Object.assign({},x,c)}return v(e,[{key:"insert",value:function(e){this.docs[e._id]=e;var t=this.db;this.queue.push(function(n){t.put(e,n)})}},{key:"remove",value:function(e){var t=this,n=this.db;this.queue.push(function(r){n.remove(e,r),delete t.docs[e._id]})}},{key:"wrapActionCreators",value:function(e){var t=this;this.propagations=Object.keys(this.actions).reduce(function(n,r){return n[r]=function(n){var o=t.actions[r](n);o&&e(o)},n},{})}},{key:"initFromDb",value:function(){var e=this;c(this)["catch"](function(t){if(401!=t.status)throw t;e.lifecycleState=!1,e.db.once("login",function(t){return c(e)})})}}]),e}()},function(e,t){e.exports=n(16)},function(e,t){
-e.exports=n(17)},function(e,t){e.exports=n(18)},function(e,t){e.exports=n(20)},function(e,t){e.exports=n(22)},function(e,t){e.exports=n(23)},function(e,t){e.exports=n(5)},function(e,t){e.exports=n(27)},function(e,t){e.exports=n(1)}])},function(e,t,n){"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol?"symbol":typeof e};n(2).install(),e.exports=function(e){function t(r){if(n[r])return n[r].exports;var o=n[r]={exports:{},id:r,loaded:!1};return e[r].call(o.exports,o,o.exports,t),o.loaded=!0,o.exports}var n={};return t.m=e,t.c=n,t.p="",t(0)}([function(e,t,n){e.exports=n(19)},function(e,t){e.exports=n(6)},function(e,t){e.exports=n(26)},function(e,t){e.exports=n(1)},function(e,t){e.exports=n(21)},function(e,t){e.exports=n(5)},function(e,t){e.exports=n(24)},function(e,t){e.exports=n(7)},function(e,t){e.exports=n(28)},function(e,t){e.exports=n(29)},function(e,t,n){function r(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{value:!0});var o=(n(7),n(3)),i=n(21),u=r(i),a=n(15),c=r(a),s=n(17),f=r(s),l=n(18),d=r(l),p=n(20)["default"];t["default"]=o.reactiveClient.implement({name:"DomainDrivenReduxReactClient",constructor:function(e){var t=e.Domains,n=e.elementId,r=void 0===n?"app":n,o=e.DomainDrivenClientStore,i=void 0===o?u["default"]:o,a=e.DomainDrivenStorePersistencePlugin,s=e.routes,l=e.middlewareGenerators,p=void 0===l?[]:l,v=e.client,h=void 0===v?{}:v;return a instanceof Error||p.push(function(e){return a.middlewareGenerator({db:a.db,domains:e})}),i instanceof Error&&(i=u["default"]),t=(0,d["default"])(t),Object.assign(h,{routes:s||h.routes||(0,f["default"])(t),elementId:r}),a&&a.authenticateRoutes&&(h.routes=a.authenticateRoutes(h.routes)),h.store=new i({domains:t,routes:h.routes,middlewareGenerators:p}),h.router=(0,c["default"])(h.store,h.routes),[h]},provider:function(){return p.bind(this)()}})},function(e,t,n){function r(e){return e&&e.__esModule?e:{"default":e}}function o(e){return(0,u["default"])(Object.keys(e).filter(function(t){return e[t].reducer}).reduce(function(t,n){return t[n]=e[n].reducer,t},{}))}Object.defineProperty(t,"__esModule",{value:!0}),t["default"]=o;var i=n(12),u=r(i)},function(e,t,n){Object.defineProperty(t,"__esModule",{value:!0});var o=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},i="function"==typeof Symbol&&"symbol"==r(Symbol.iterator)?function(e){return"undefined"==typeof e?"undefined":r(e)}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol?"symbol":"undefined"==typeof e?"undefined":r(e)};t["default"]=function(e){if("object"!==("undefined"==typeof e?"undefined":i(e)))throw"Reactuate reducers should be an object (and not a function)";return(0,u.combineReducers)(o({router:a.routerStateReducer},e))};var u=n(1),a=n(2)},function(e,t,n){function r(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{value:!0}),t["default"]=function(e,t){function n(){var e=arguments.length<=0||void 0===arguments[0]?o:arguments[0],t=arguments.length<=1||void 0===arguments[1]?!1:arguments[1],i=arguments.length<=2||void 0===arguments[2]?void 0:arguments[2],c=arguments.length<=3||void 0===arguments[3]?[r.displayName]:arguments[3];return n.is(e)?e:(e=r(e),"undefined"!=typeof i&&(i=u(i)),this instanceof n?(this.type=a,this.payload=e,t&&(this.error=!0),"undefined"!=typeof i&&(this.meta=i),void Object.freeze(this)):new n(e,t,i,c))}var r=arguments.length<=2||void 0===arguments[2]?i["default"].Any:arguments[2],o=arguments.length<=3||void 0===arguments[3]?void 0:arguments[3],u=arguments.length<=4||void 0===arguments[4]?i["default"].Any:arguments[4],a=e.withPrefix(t);return n.meta={kind:"actionCreator",payload:r,name:a,identity:!1},n.displayName="Action "+a+"("+r.displayName+")",n.actionCreator=!0,n.action=t,n.is=function(e){return e instanceof n},e.register("actions",t,n),n};var o=n(8),i=r(o)},function(e,t,n){function r(e){return e&&e.__esModule?e:{"default":e}}function o(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}Object.defineProperty(t,"__esModule",{value:!0}),t["default"]=function(e,t){for(var n=arguments.length,r=Array(n>2?n-2:0),i=2;n>i;i++)r[i-2]=arguments[i];var a=function c(){var n=arguments.length<=0||void 0===arguments[0]?t:arguments[0],i=arguments[1],c=i;if("@@reactuate/action"===i.type){var a=e.get("actions")[e.withoutPrefix(i.payload.type)];u["default"].Nil.is(a)||(c=a(i.payload.payload,i.payload.error,i.payload.meta))}Object.freeze(n);var s=r.map(function(e){return"function"==typeof e&&"undefined"==typeof e.meta?function(t){return e(n,t)}:e});return u["default"].match.apply(u["default"],[c].concat(o(s),[u["default"].Any,function(){return n}]))};return e.reducer=a,a};var i=n(8),u=r(i)},function(e,t,n){function r(e){return e&&e.__esModule?e:{"default":e}}function o(e,t){return u["default"].createElement(c.Provider,{store:e},u["default"].createElement(a.ReduxRouter,null,t))}Object.defineProperty(t,"__esModule",{value:!0}),t["default"]=o;var i=n(5),u=r(i),a=n(2),c=n(6)},function(e,t,n){function r(e){return e&&e.__esModule?e:{"default":e}}function o(e){var t=e.name;return t.toLowerCase().replace(/_([a-z])/g,function(e){return e[1].toUpperCase()})}function i(e){var t=e.prefix,n=e.name;return"@@"+t+"/"+n}function u(e,t){return p.utils.nameObj({name:o({prefix:e,name:t}),object:function(n){return{type:i({prefix:e,name:t}),payload:n}}})}function a(e,t,n){return function(r,o){var u=o.type,a=o.payload;return u===i({prefix:e,name:t})?n(r,a):r}}function c(e,t){return function(){var n=arguments.length<=0||void 0===arguments[0]?e:arguments[0],r=arguments[1];return t.reduce(function(e,t){return t(e,r)},n)}}function s(e){var t=e.get("dataFlows"),n=e.prefix;return t&&Object.keys(t).length&&(Object.keys(t).forEach(function(t){e.register("actions",o({prefix:n,name:t}),u(n,t))}),e.reducer=c(e.initialState||[],Object.keys(t).map(function(e){return a(n,e,t[e])}))),e}function f(e){return Object.keys(e).reduce(function(t,n){return t[n]=f(e[n]),t},{})}Object.defineProperty(t,"__esModule",{value:!0}),t.unpackDataFlowsIntoDomain=s,t["default"]=f;var l=n(14),d=(r(l),n(13)),p=(r(d),n(7))},function(e,t,n){function r(e){return e&&e.__esModule?e:{"default":e}}function o(e,t){return Object.keys(e).map(function(t){return e[t]}).filter(function(e){return Object.keys(e.get(t)).length})}function i(e){return e.get("route").route||d["default"].createElement(p.Route,{path:"/",component:e.get("route").component})}function u(e){return o(e,"route").filter(function(e){return"/"==e.get("route").path}).map(i)[0]}function a(e){return o(e,"route").map(function(e){return e.get("route")}).filter(function(e){return e.isContainer})}function c(e){var t=e.route,n=e.domainRoutes,r=n.filter(function(e){return e.original==t.props.component})[0];return d["default"].cloneElement(t,r?{component:r.component,key:t.props.key||t.props.path||"/"}:{key:t.props.key||t.props.path||"/"},t.props.children?t.props.children.map(function(e){return c({route:e,domainRoutes:n})}):void 0)}function s(e,t){return c({route:e,domainRoutes:a(t)})}function f(e){return s(u(e),e)}Object.defineProperty(t,"__esModule",{value:!0}),t.swapRouteComponentForContainer=c,t["default"]=f;var l=n(5),d=r(l),p=n(25)},function(e,t,n){function r(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function o(e){return e.get("actions")&&Object.keys(e.get("actions")).length||(e=(0,f.unpackDataFlowsIntoDomain)(e)),(0,s.connect)(function(t){return r({},e.prefix,t[e.prefix])},function(t){return{actions:(0,c.bindActionCreators)(e.get("actions"),t)}})(e.get("route").component)}function i(e){return e.get("actions")&&Object.keys(e.get("actions")).length||(e=(0,f.unpackDataFlowsIntoDomain)(e)),e.register("route","original",e.get("route").component),e.register("route","component",o(e)),e.register("route","isContainer",!0),e}function u(e){var t=e.get("route"),n=t.component,r=t.isContainer;return n&&!r&&Object.keys(e.get("dataFlows")).length&&(e=i(e)),e}function a(e){return Object.keys(e).reduce(function(t,n){return t[n]=u(e[n]),t},{})}Object.defineProperty(t,"__esModule",{value:!0}),t.domainReduxConnector=o,t.connectDomainRoutes=i,t.expandReduxDomain=u,t["default"]=a;var c=n(1),s=n(6),f=n(16)},function(e,t,n){function r(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{value:!0}),t["default"]=void 0;var o=n(10),i=r(o);t["default"]=i["default"]},function(e,t,n){function r(e){return e&&e.__esModule?e:{"default":e}}function o(){var e=(0,a["default"])(y["default"]);return new b.Domain.implementation({name:"",middleware:[(0,l["default"])(e,{noInfo:!0,publicPath:y["default"].output.publicPath}),(0,p["default"])(e),h["default"]["static"]("static")],routes:i({},{},{"*":{methods:["get"],handlers:[function(e,t,n){return t.sendFile(s["default"].join(process.cwd(),"index.html"))}]}}),order:["*"]})}Object.defineProperty(t,"__esModule",{value:!0});var i=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e};t["default"]=o;var u=n(9),a=r(u),c=n(4),s=r(c),f=n(26),l=r(f),d=n(27),p=r(d),v=n(23),h=r(v),m=n(22),y=r(m),b=n(3)},function(e,t,n){function o(e){return e&&e.__esModule?e:{"default":e}}function i(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}function u(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function a(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=("undefined"==typeof t?"undefined":r(t))&&"function"!=typeof t?e:t}function c(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+("undefined"==typeof t?"undefined":r(t)));e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}Object.defineProperty(t,"__esModule",{value:!0});var s=n(1),f=n(2),l=n(3),d=n(11),p=o(d),v=n(24),h=function(e){function t(e){var n=e.domains,r=e.routes,o=e.store,c=void 0===o?s.createStore:o,l=e.defaultMiddlewareGenerators,d=void 0===l?[]:l,h=e.middlewareGenerators,m=void 0===h?[]:h;return u(this,t),a(this,Object.getPrototypeOf(t).call(this,(0,s.compose)(s.applyMiddleware.apply(void 0,i(d.map(function(e){return e(n)})).concat(i(m.map(function(e){return e(n)})))),(0,f.reduxReactRouter)({routes:r,createHistory:v}))(c)((0,p["default"])(n))))}return c(t,e),t}(l.clientStore["default"]);t["default"]=h},function(e,t,n){var r=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},o=n(4),i=n(9);e.exports=r({},{devtool:"source-map"},{context:process.cwd(),debug:!0,target:"web",entry:["webpack-hot-middleware/client","./src/index"],output:{path:o.join(process.cwd(),"dist"),filename:"bundle.js",publicPath:"/static/"},plugins:[new i.DefinePlugin({$ES:{CONTEXT:JSON.stringify("BROWSER"),ENV:JSON.stringify("DEVELOPMENT")}}),new i.optimize.OccurenceOrderPlugin,new i.HotModuleReplacementPlugin,new i.NoErrorsPlugin],resolveLoader:{fallback:o.join(process.cwd(),"node_modules"),alias:{polypack:"callback?polypack"}},callbackLoader:{polypack:function(e){var t="browser_"+"DEVELOPMENT".toLowerCase();return e?'require("'+e+"/dist/for/"+t+'") //polypacked secondhand':'require("./for/'+t+'") //polypacked by dist'}},module:{loaders:[{test:/\.js$|\.jsx$/,loaders:["babel?presets[]=es2015&presets[]=stage-0&presets[]=react"],exclude:/node_modules/,include:[process.cwd()]},{test:/\.json$/,loader:"json"},{test:/\.css$/,loader:"style!css!postcss"},{test:/\.less$/,loader:"style!css!less"},{test:/\.scss$/,loader:"style-loader!css-loader!sass-loader?outputStyle=expanded&includePaths[]="+o.resolve(process.cwd(),"./node_modules")},{test:/\.woff(2)?(\?.+)?$/,loader:"url?limit=10000&mimetype=application/font-woff"},{test:/\.ttf(\?.+)?$/,loader:"url?limit=10000&mimetype=application/octet-stream"},{test:/\.eot(\?.+)?$/,loader:"file"},{test:/\.svg(\?.+)?$/,loader:"url?limit=10000&mimetype=image/svg+xml"},{test:/\.png$/,loader:"url-loader?limit=100000"},{test:/\.jpg$/,loader:"file-loader"}]},resolve:{modulesDirectories:["src","node_modules","web_modules"],extensions:["",".json",".js",".jsx"],fallback:o.join(process.cwd(),"node_modules"),alias:{react:o.join(process.cwd(),"./node_modules/react")}},node:{__dirname:!0,fs:"empty"}})},function(e,t){e.exports=n(4)},function(e,t){e.exports=n(19)},function(e,t){e.exports=n(25)},function(e,t){e.exports=n(30)},function(e,t){e.exports=n(31)}])},function(e,t){e.exports=n(16)},function(e,t){e.exports=n(18)},function(e,t){e.exports=n(19)},function(e,t){e.exports=n(21)},function(e,t){e.exports=n(22)},function(e,t){e.exports=n(23)},function(e,t){e.exports=n(24)},function(e,t){e.exports=n(25)},function(e,t){e.exports=n(26)},function(e,t){e.exports=n(27)},function(e,t){e.exports=n(29)},function(e,t){e.exports=n(30)},function(e,t){e.exports=n(33)},function(e,t){e.exports=n(34)},function(e,t){e.exports=n(35)},function(e,t){e.exports=n(36)},function(e,t,n,r){"use strict";e.exports=n(r)}]))},function(e,t){e.exports=require("async-function-queue")},function(e,t){e.exports=require("babel-polyfill")},function(e,t){e.exports=require("child_process")},function(e,t){e.exports=require("deep-equal")},function(e,t){e.exports=require("express")},function(e,t){e.exports=require("history/lib/createMemoryHistory")},function(e,t){e.exports=require("json-path")},function(e,t){e.exports=require("path")},function(e,t){e.exports=require("pouchdb")},function(e,t){e.exports=require("pouchdb-authentication")},function(e,t){e.exports=require("react-redux")},function(e,t){e.exports=require("react-router")},function(e,t){e.exports=require("redux")},function(e,t){e.exports=require("redux-router")},function(e,t){e.exports=require("requisition")},function(e,t){e.exports=require("strictduck")},function(e,t){e.exports=require("strictduck-domain-driven-fullstack")},function(e,t){e.exports=require("tcomb")},function(e,t){e.exports=require("webpack")},function(e,t){e.exports=require("webpack-dev-middleware")},function(e,t){e.exports=require("webpack-hot-middleware")}]);
+require("source-map-support").install();
+module.exports =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(6);
+
+
+/***/ },
+/* 1 */
+/***/ function(module, exports) {
+
+	module.exports = require("react");
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	
+	var filters = exports.filters = {
+	    SHOW_ALL: 'show_all',
+	    SHOW_COMPLETED: 'show_completed',
+	    SHOW_ACTIVE: 'show_active'
+	};
+	
+	exports.default = {
+	    ADD_TODO: function ADD_TODO(state, payload) {
+	        return [_extends({
+	            _id: (state.reduce(function (maxId, todo) {
+	                return Math.max(parseInt(todo._id), maxId);
+	            }, -1) + 1).toString(),
+	            completed: false
+	        }, payload)].concat(_toConsumableArray(state));
+	    },
+	    DELETE_TODO: function DELETE_TODO(state, payload) {
+	        return state.filter(function (todo) {
+	            return todo._id !== payload._id;
+	        });
+	    },
+	    EDIT_TODO: function EDIT_TODO(state, payload) {
+	        return state.map(function (todo) {
+	            return todo._id === payload._id ? Object.assign({}, todo, payload) : todo;
+	        });
+	    },
+	    COMPLETE_TODO: function COMPLETE_TODO(state, payload) {
+	        return state.map(function (todo) {
+	            return todo._id === payload._id ? Object.assign({}, todo, { completed: !todo.completed }) : todo;
+	        });
+	    },
+	    COMPLETE_ALL: function COMPLETE_ALL(state, payload) {
+	        var areAllMarked = state.every(function (todo) {
+	            return todo.completed;
+	        });
+	        return state.map(function (todo) {
+	            return Object.assign({}, todo, {
+	                completed: !areAllMarked
+	            });
+	        });
+	    },
+	    CLEAR_COMPLETED: function CLEAR_COMPLETED(state, payload) {
+	        return state.filter(function (todo) {
+	            return todo.completed === false;
+	        });
+	    }
+	};
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	module.exports = require("classnames");
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _classnames = __webpack_require__(3);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var TodoTextInput = function (_Component) {
+	  _inherits(TodoTextInput, _Component);
+	
+	  function TodoTextInput(props, context) {
+	    _classCallCheck(this, TodoTextInput);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TodoTextInput).call(this, props, context));
+	
+	    _this.state = {
+	      text: _this.props.text || ''
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(TodoTextInput, [{
+	    key: 'handleSubmit',
+	    value: function handleSubmit(e) {
+	      var text = e.target.value.trim();
+	      if (e.which === 13) {
+	        this.props.onSave(text);
+	        if (this.props.newTodo) {
+	          this.setState({ text: '' });
+	        }
+	      }
+	    }
+	  }, {
+	    key: 'handleChange',
+	    value: function handleChange(e) {
+	      this.setState({ text: e.target.value });
+	    }
+	  }, {
+	    key: 'handleBlur',
+	    value: function handleBlur(e) {
+	      if (!this.props.newTodo) {
+	        this.props.onSave(e.target.value);
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement('input', { className: (0, _classnames2.default)({
+	          edit: this.props.editing,
+	          'new-todo': this.props.newTodo
+	        }),
+	        type: 'text',
+	        placeholder: this.props.placeholder,
+	        autoFocus: 'true',
+	        value: this.state.text,
+	        onBlur: this.handleBlur.bind(this),
+	        onChange: this.handleChange.bind(this),
+	        onKeyDown: this.handleSubmit.bind(this) });
+	    }
+	  }]);
+	
+	  return TodoTextInput;
+	}(_react.Component);
+	
+	TodoTextInput.propTypes = {
+	  onSave: _react.PropTypes.func.isRequired,
+	  text: _react.PropTypes.string,
+	  placeholder: _react.PropTypes.string,
+	  editing: _react.PropTypes.bool,
+	  newTodo: _react.PropTypes.bool
+	};
+	
+	exports.default = TodoTextInput;
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	module.exports = require("bufflehead/dist/for/node_development");
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	__webpack_require__(14);
+	
+	var _polypackBufflehead = __webpack_require__(5);
+	
+	var bufflehead = _interopRequireWildcard(_polypackBufflehead);
+	
+	var _todos = __webpack_require__(13);
+	
+	var _todos2 = _interopRequireDefault(_todos);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	if (false) require('todomvc-app-css/index.css');
+	
+	var settings = bufflehead.settings({
+	    "db": {
+	        "name": "todos",
+	        "uri": "http://127.0.0.1:5984",
+	        "credentials": {
+	            "admin": {
+	                "name": "server",
+	                "password": "server"
+	            }
+	        }
+	    }
+	});
+	
+	var app = new bufflehead.default({
+	    title: 'Bufflehead • TodoMVC',
+	    domains: { todos: _todos2.default, settings: settings }
+	});
+	
+	app.main();
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _FILTER_TITLES;
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _classnames = __webpack_require__(3);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var _dataFlows = __webpack_require__(2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	var FILTER_TITLES = (_FILTER_TITLES = {}, _defineProperty(_FILTER_TITLES, _dataFlows.filters.SHOW_ALL, 'All'), _defineProperty(_FILTER_TITLES, _dataFlows.filters.SHOW_ACTIVE, 'Active'), _defineProperty(_FILTER_TITLES, _dataFlows.filters.SHOW_COMPLETED, 'Completed'), _FILTER_TITLES);
+	
+	var Footer = function (_Component) {
+	  _inherits(Footer, _Component);
+	
+	  function Footer() {
+	    _classCallCheck(this, Footer);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Footer).apply(this, arguments));
+	  }
+	
+	  _createClass(Footer, [{
+	    key: 'renderTodoCount',
+	    value: function renderTodoCount() {
+	      var activeCount = this.props.activeCount;
+	
+	      var itemWord = activeCount === 1 ? 'item' : 'items';
+	
+	      return _react2.default.createElement(
+	        'span',
+	        { className: 'todo-count' },
+	        _react2.default.createElement(
+	          'strong',
+	          null,
+	          activeCount || 'No'
+	        ),
+	        ' ',
+	        itemWord,
+	        ' left'
+	      );
+	    }
+	  }, {
+	    key: 'renderFilterLink',
+	    value: function renderFilterLink(filter) {
+	      var title = FILTER_TITLES[filter];
+	      var _props = this.props;
+	      var selectedFilter = _props.filter;
+	      var onShow = _props.onShow;
+	
+	
+	      return _react2.default.createElement(
+	        'a',
+	        { className: (0, _classnames2.default)({ selected: filter === selectedFilter }),
+	          style: { cursor: 'pointer' },
+	          onClick: function onClick() {
+	            return onShow(filter);
+	          } },
+	        title
+	      );
+	    }
+	  }, {
+	    key: 'renderClearButton',
+	    value: function renderClearButton() {
+	      var _props2 = this.props;
+	      var completedCount = _props2.completedCount;
+	      var onClearCompleted = _props2.onClearCompleted;
+	
+	      if (completedCount > 0) {
+	        return _react2.default.createElement(
+	          'button',
+	          { className: 'clear-completed',
+	            onClick: onClearCompleted },
+	          'Clear completed'
+	        );
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      return _react2.default.createElement(
+	        'footer',
+	        { className: 'footer' },
+	        this.renderTodoCount(),
+	        _react2.default.createElement(
+	          'ul',
+	          { className: 'filters' },
+	          [_dataFlows.filters.SHOW_ALL, _dataFlows.filters.SHOW_ACTIVE, _dataFlows.filters.SHOW_COMPLETED].map(function (filter) {
+	            return _react2.default.createElement(
+	              'li',
+	              { key: filter },
+	              _this2.renderFilterLink(filter)
+	            );
+	          })
+	        ),
+	        this.renderClearButton()
+	      );
+	    }
+	  }]);
+	
+	  return Footer;
+	}(_react.Component);
+	
+	Footer.propTypes = {
+	  completedCount: _react.PropTypes.number.isRequired,
+	  activeCount: _react.PropTypes.number.isRequired,
+	  filter: _react.PropTypes.string.isRequired,
+	  onClearCompleted: _react.PropTypes.func.isRequired,
+	  onShow: _react.PropTypes.func.isRequired
+	};
+	
+	exports.default = Footer;
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _TodoTextInput = __webpack_require__(4);
+	
+	var _TodoTextInput2 = _interopRequireDefault(_TodoTextInput);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Header = function (_Component) {
+	  _inherits(Header, _Component);
+	
+	  function Header() {
+	    _classCallCheck(this, Header);
+	
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Header).apply(this, arguments));
+	  }
+	
+	  _createClass(Header, [{
+	    key: 'handleSave',
+	    value: function handleSave(text) {
+	      if (text.length !== 0) {
+	        this.props.addTodo({ text: text });
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'header',
+	        { className: 'header' },
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'todos'
+	        ),
+	        _react2.default.createElement(_TodoTextInput2.default, { newTodo: true,
+	          onSave: this.handleSave.bind(this),
+	          placeholder: 'What needs to be done?' })
+	      );
+	    }
+	  }]);
+	
+	  return Header;
+	}(_react.Component);
+	
+	Header.propTypes = {
+	  addTodo: _react.PropTypes.func.isRequired
+	};
+	
+	exports.default = Header;
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _classnames = __webpack_require__(3);
+	
+	var _classnames2 = _interopRequireDefault(_classnames);
+	
+	var _TodoTextInput = __webpack_require__(4);
+	
+	var _TodoTextInput2 = _interopRequireDefault(_TodoTextInput);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var TodoItem = function (_Component) {
+	  _inherits(TodoItem, _Component);
+	
+	  function TodoItem(props, context) {
+	    _classCallCheck(this, TodoItem);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TodoItem).call(this, props, context));
+	
+	    _this.state = {
+	      editing: false
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(TodoItem, [{
+	    key: 'handleDoubleClick',
+	    value: function handleDoubleClick() {
+	      this.setState({ editing: true });
+	    }
+	  }, {
+	    key: 'handleSave',
+	    value: function handleSave(id, text) {
+	      if (text.length === 0) {
+	        this.props.deleteTodo(id);
+	      } else {
+	        this.props.editTodo(id, text);
+	      }
+	      this.setState({ editing: false });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      var _props = this.props;
+	      var todo = _props.todo;
+	      var completeTodo = _props.completeTodo;
+	      var deleteTodo = _props.deleteTodo;
+	
+	
+	      var element = void 0;
+	      if (this.state.editing) {
+	        element = _react2.default.createElement(_TodoTextInput2.default, { text: todo.text,
+	          editing: this.state.editing,
+	          onSave: function onSave(text) {
+	            return _this2.handleSave(todo.id, text);
+	          } });
+	      } else {
+	        element = _react2.default.createElement(
+	          'div',
+	          { className: 'view' },
+	          _react2.default.createElement('input', { className: 'toggle',
+	            type: 'checkbox',
+	            checked: todo.completed,
+	            onChange: function onChange() {
+	              return completeTodo(todo);
+	            } }),
+	          _react2.default.createElement(
+	            'label',
+	            { onDoubleClick: this.handleDoubleClick.bind(this) },
+	            todo.text
+	          ),
+	          _react2.default.createElement('button', { className: 'destroy',
+	            onClick: function onClick(_) {
+	              return deleteTodo(todo);
+	            } })
+	        );
+	      }
+	
+	      return _react2.default.createElement(
+	        'li',
+	        { className: (0, _classnames2.default)({
+	            completed: todo.completed,
+	            editing: this.state.editing
+	          }) },
+	        element
+	      );
+	    }
+	  }]);
+	
+	  return TodoItem;
+	}(_react.Component);
+	
+	TodoItem.propTypes = {
+	  todo: _react.PropTypes.object.isRequired,
+	  editTodo: _react.PropTypes.func.isRequired,
+	  deleteTodo: _react.PropTypes.func.isRequired,
+	  completeTodo: _react.PropTypes.func.isRequired
+	};
+	
+	exports.default = TodoItem;
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _TODO_FILTERS;
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _TodoItem = __webpack_require__(9);
+	
+	var _TodoItem2 = _interopRequireDefault(_TodoItem);
+	
+	var _Footer = __webpack_require__(7);
+	
+	var _Footer2 = _interopRequireDefault(_Footer);
+	
+	var _Header = __webpack_require__(8);
+	
+	var _Header2 = _interopRequireDefault(_Header);
+	
+	var _dataFlows = __webpack_require__(2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	var TODO_FILTERS = (_TODO_FILTERS = {}, _defineProperty(_TODO_FILTERS, _dataFlows.filters.SHOW_ALL, function () {
+	  return true;
+	}), _defineProperty(_TODO_FILTERS, _dataFlows.filters.SHOW_ACTIVE, function (todo) {
+	  return !todo.completed;
+	}), _defineProperty(_TODO_FILTERS, _dataFlows.filters.SHOW_COMPLETED, function (todo) {
+	  return todo.completed;
+	}), _TODO_FILTERS);
+	
+	var Todos = function (_Component) {
+	  _inherits(Todos, _Component);
+	
+	  function Todos(props, context) {
+	    _classCallCheck(this, Todos);
+	
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Todos).call(this, props, context));
+	
+	    _this.state = { filter: _dataFlows.filters.SHOW_ALL };
+	    return _this;
+	  }
+	
+	  _createClass(Todos, [{
+	    key: 'handleClearCompleted',
+	    value: function handleClearCompleted() {
+	      this.props.actions.clearCompleted();
+	    }
+	  }, {
+	    key: 'handleShow',
+	    value: function handleShow(filter) {
+	      this.setState({ filter: filter });
+	    }
+	  }, {
+	    key: 'renderToggleAll',
+	    value: function renderToggleAll(completedCount) {
+	      var _props = this.props;
+	      var todos = _props.todos;
+	      var actions = _props.actions;
+	
+	      if (todos.length > 0) {
+	        return _react2.default.createElement('input', { className: 'toggle-all',
+	          type: 'checkbox',
+	          checked: completedCount === todos.length,
+	          onChange: actions.completeAll });
+	      }
+	    }
+	  }, {
+	    key: 'renderFooter',
+	    value: function renderFooter(completedCount) {
+	      var todos = this.props.todos;
+	      var filter = this.state.filter;
+	
+	      var activeCount = todos.length - completedCount;
+	
+	      if (todos.length) {
+	        return _react2.default.createElement(_Footer2.default, { completedCount: completedCount,
+	          activeCount: activeCount,
+	          filter: filter,
+	          onClearCompleted: this.handleClearCompleted.bind(this),
+	          onShow: this.handleShow.bind(this) });
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _props2 = this.props;
+	      var todos = _props2.todos;
+	      var actions = _props2.actions;
+	      var filter = this.state.filter;
+	
+	
+	      var filteredTodos = todos.filter(TODO_FILTERS[filter]);
+	      var completedCount = todos.reduce(function (count, todo) {
+	        return todo.completed ? count + 1 : count;
+	      }, 0);
+	
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'todoapp' },
+	        _react2.default.createElement(_Header2.default, { addTodo: actions.addTodo }),
+	        _react2.default.createElement(
+	          'section',
+	          { className: 'main' },
+	          this.renderToggleAll(completedCount),
+	          _react2.default.createElement(
+	            'ul',
+	            { className: 'todo-list' },
+	            filteredTodos.map(function (todo) {
+	              return _react2.default.createElement(_TodoItem2.default, _extends({ key: todo._id, todo: todo }, actions));
+	            })
+	          ),
+	          this.renderFooter(completedCount)
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Todos;
+	}(_react.Component);
+	
+	Todos.propTypes = {
+	  todos: _react.PropTypes.array.isRequired,
+	  actions: _react.PropTypes.object.isRequired
+	};
+	
+	exports.default = Todos;
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+	
+	var _Todos = __webpack_require__(10);
+	
+	var _Todos2 = _interopRequireDefault(_Todos);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _Todos2.default;
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _dataFlows = __webpack_require__(2);
+	
+	var _dataFlows2 = _interopRequireDefault(_dataFlows);
+	
+	var _components = __webpack_require__(11);
+	
+	var _components2 = _interopRequireDefault(_components);
+	
+	var _polypackBufflehead = __webpack_require__(5);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = new _polypackBufflehead.Domain({
+	    name: 'todos',
+	    route: {
+	        path: '/',
+	        component: _components2.default
+	    },
+	    pouchActionMap: {
+	        insert: 'addTodo',
+	        update: 'editTodo',
+	        remove: 'deleteTodo'
+	    },
+	    dataFlows: _dataFlows2.default
+	});
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+	
+	var _domain = __webpack_require__(12);
+	
+	var _domain2 = _interopRequireDefault(_domain);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _domain2.default;
+
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
+
+	module.exports = require("babel-polyfill");
+
+/***/ }
+/******/ ]);
 //# sourceMappingURL=index.js.map

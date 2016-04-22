@@ -1,6 +1,6 @@
 {
   "name": "bufflehead-todos",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,23 +10,18 @@
     "watch": "polypacker --preset NODE_APPLICATION --babelPreset react --watch"
   },
   "author": "Michael Joseph Rosenthal",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "babel-polyfill": "^6.7.4",
-    "babel-preset-react-hmre": "^1.1.1",
-    "bufflehead": "strictduck/bufflehead",
+    "bufflehead": "0.1.1",
     "classnames": "^2.2.3",
-    "imports-loader": "^0.6.5",
     "react": "^0.14.7",
     "react-redux": "^4.4.1",
     "react-router": "^1.0.3",
     "redux": "^3.3.1",
     "todomvc-app-css": "^2.0.4",
-    "todomvc-common": "^1.0.2",
-    "webpack": "^1.12.14",
-    "webpack-hot-middleware": "^2.10.0"
+    "todomvc-common": "^1.0.2"
   },
   "devDependencies": {
-    "polypacker": "git://github.com/michaeljosephrosenthal/polypacker.git"
+    "polypacker": "0.1.2"
   }
 }

@@ -1,5 +1,5 @@
 import 'babel-polyfill'
-import * as bufflehead from 'polypack!bufflehead'
+import DomainDrivenFullstackApplication, * as bufflehead from 'polypack!bufflehead'
 
 if ($ES.CONTEXT == 'BROWSER')
     require('todomvc-app-css/index.css');
@@ -14,17 +14,13 @@ const settings = bufflehead.settings({
             "admin":{
                 "name": "server",
                 "password": "server"
-            }/*,
-            "users": [{
-                "name": "client",
-                "password": "client"
-            }]*/
+            }
         }
     }
 })
 
-const app = new bufflehead.default({
-    title: 'Domain Driven Bufflehead Todos',
+const app = new DomainDrivenFullstackApplication({
+    title: 'Bufflehead • TodoMVC',
     domains: { todos, settings }
 })
 

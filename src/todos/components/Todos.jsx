@@ -63,7 +63,7 @@ class Todos extends Component {
     )
 
     return (
-      <div>
+      <div className="todoapp">
         <Header addTodo={actions.addTodo} />
         <section className="main">
           {this.renderToggleAll(completedCount)}
