@@ -1,17 +1,14 @@
 FROM mhart/alpine-node
 
 RUN apk add --update \
-    openssh make g++ \
-    python \
-    git
+        openssh \
+        curl \
+        bash \
+        git \
+&& apk del build-base linux-headers pcre-dev openssl-dev \
+&& rm -rf /var/cache/apk/* 
 
-ADD package.json /tmp/package.json
-RUN cd /tmp && npm install --verbose
-
-RUN mkdir -p /app
+ADD ./ /app
 WORKDIR /app
 
-RUN cp -a /tmp/node_modules .
-RUN cp /tmp/package.json .
-
-ADD ./src ./src
+EXPOSE 3000

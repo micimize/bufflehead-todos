@@ -9,9 +9,9 @@ import todos from './todos'
 const settings = bufflehead.settings({
     "db": {
         "name": "todos",
-        "uri": "http://127.0.0.1:5984",
+        "uri": "http://192.168.99.100:5984",
         "credentials": {
-            "admin":{
+            "admin": {
                 "name": "server",
                 "password": "server"
             }
