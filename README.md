@@ -3,8 +3,8 @@ example bufflehead app
 
 To run locally:  
     \* [install couchdb](https://wiki.apache.org/couchdb/Installation) (`brew install couchdb` if you have [homebrew](http://brew.sh/))  
-    \* `npm install -g add-cors-to-couchdb; add-cors-to-couchdb`
     \* run `couchdb` in a terminal pane   
+    \* `npm install -g add-cors-to-couchdb; add-cors-to-couchdb`
     \* `npm install; npm run start`  
     \* go to `localhost:3000`  
 
